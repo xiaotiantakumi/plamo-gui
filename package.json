@@ -1,13 +1,32 @@
 {
-  "name": "plamo",
+  "name": "plamo-gui",
+  "version": "0.1.0",
+  "description": "Japanese-English translation application using MLX-based plamo-2-translate model",
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaotiantakumi/plamo-gui.git"
+  },
+  "keywords": [
+    "translation",
+    "japanese",
+    "english",
+    "mlx",
+    "plamo",
+    "bun"
+  ],
+  "author": "Takumi Oda",
+  "license": "MIT",
   "scripts": {
     "build:css": "bun run build.ts",
     "dev": "bun run build:css && bun --hot ./index.ts",
     "build": "bun run build:css && bun build ./index.html --outdir=./dist",
-    "preview": "bun ./index.ts"
+    "preview": "bun ./index.ts",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.8",

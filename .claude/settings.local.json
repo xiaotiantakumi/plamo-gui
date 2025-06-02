@@ -11,7 +11,9 @@
       "Bash(bun run:*)",
       "Bash(pkill:*)",
       "Bash(bun build:*)",
-      "Bash(bunx tailwindcss:*)"
+      "Bash(bunx tailwindcss:*)",
+      "Bash(bun test)",
+      "Bash(bun remove:*)"
     ],
     "deny": []
   }
