@@ -4,30 +4,27 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run dev:server & bun run dev:client",
-    "dev:server": "bun run --watch server.ts",
-    "dev:client": "bunx vite",
-    "build": "bunx vite build",
-    "preview": "bunx vite preview"
+    "build:css": "bun run build.ts",
+    "dev": "bun run build:css && bun --hot ./index.ts",
+    "build": "bun run build:css && bun build ./index.html --outdir=./dist",
+    "preview": "bun ./index.ts"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.8",
     "@types/bun": "latest",
     "@types/node": "^22.15.29",
-    "@vitejs/plugin-react": "^4.5.0",
     "autoprefixer": "^10.4.21",
+    "bun-plugin-tailwindcss": "^0.0.4",
     "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8",
-    "vite": "^6.3.5"
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.8"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.3",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
-    "hono": "^4.7.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }

@@ -6,7 +6,12 @@
       "Bash(rm:*)",
       "Bash(bun init:*)",
       "Bash(bun add:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(bun install:*)",
+      "Bash(bun run:*)",
+      "Bash(pkill:*)",
+      "Bash(bun build:*)",
+      "Bash(bunx tailwindcss:*)"
     ],
     "deny": []
   }
