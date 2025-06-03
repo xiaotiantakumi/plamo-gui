@@ -13,7 +13,9 @@
       "Bash(bun build:*)",
       "Bash(bunx tailwindcss:*)",
       "Bash(bun test)",
-      "Bash(bun remove:*)"
+      "Bash(bun remove:*)",
+      "Bash(.venv/bin/python -m pip:*)",
+      "Bash(true)"
     ],
     "deny": []
   }

@@ -1,8 +1,8 @@
 import index from "./index.html"
 import { spawn } from 'child_process'
 
-function translateText(text: string, fromLang: 'ja' | 'en'): Promise<string> {
-  return new Promise((resolve, reject) => {
+async function translateText(text: string, fromLang: 'ja' | 'en'): Promise<string> {
+  return new Promise(async (resolve, reject) => {
     const prompt = fromLang === 'ja' ? text : `Translate to Japanese: ${text}`
     
     const args = [
@@ -12,9 +12,13 @@ function translateText(text: string, fromLang: 'ja' | 'en'): Promise<string> {
       '--prompt', prompt
     ]
     
-    const pythonPath = process.env.VIRTUAL_ENV 
-      ? `${process.env.VIRTUAL_ENV}/bin/python`
-      : 'python'
+    // Check for Python in the current directory's .venv first
+    const localVenv = './.venv/bin/python'
+    const pythonPath = await Bun.file(localVenv).exists() 
+      ? localVenv
+      : process.env.VIRTUAL_ENV 
+        ? `${process.env.VIRTUAL_ENV}/bin/python`
+        : 'python'
     
     const proc = spawn(pythonPath, args)
     let output = ''
